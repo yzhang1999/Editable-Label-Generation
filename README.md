@@ -25,6 +25,8 @@ The primary problem this project aims to solve is the inefficiency and complexit
 ## Process Workflow
 ![Editable_Label_Workflow](https://github.com/user-attachments/assets/7136da11-c04b-44af-914d-51e3aae075a6)
 
+---
+
 ## Model Explanation
 ### Image Detection using YOLO
 
@@ -54,6 +56,8 @@ Bounding boxes needed validation to ensure accuracy post-augmentation.
 
 ### YOLO model Outcome:  
 Despite limitations, YOLO provided valuable bounding box predictions, which formed the foundation for downstream OCR, barcode recognition, and ZPL generation, ultimately enabling the automated pipeline to achieve its objectives.
+
+---
 
 ### OCR Process in the Workflow
 
