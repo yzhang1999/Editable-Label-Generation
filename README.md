@@ -10,7 +10,7 @@
 
 
 ## Project Description
-The primary problem this project aims to solve is the inefficiency and complexity involved in the manual creation and modification of labels for Zebra printers. To address this, the project will develop an advanced automated system that leverages Generative AI to convert images of printer labels into Zebra Printer Language (ZPL).
+The primary problem this project aims to solve is the inefficiency and complexity involved in the manual creation and modification of labels for Zebra printers. To address this, the project will develop an advanced automated system that leverages Generative AI to convert images of printer labels into Zebra Printer Language (ZPL). 
 
 ## Files Description
 - API.ipynb: This file includes code for prompt engineering and experiments with the Anthropic API and OpenAI API to generate ZPL code.
@@ -28,31 +28,31 @@ The primary problem this project aims to solve is the inefficiency and complexit
 ## Model Explanation
 ### Image Detection using YOLO
 
-Objective: YOLO is central to automating object detection for ZPL label generation. It is trained to classify and locate elements such as text, barcodes, and figures, providing bounding box coordinates for further processing.
+Objective: YOLO is central to automating object detection for ZPL label generation. It is trained to classify and locate elements such as text, barcodes, and figures, providing bounding box coordinates for further processing. 
 
 ### Key Implementation Details:
-Data Preparation: The dataset consisted of 1494 images, with a subset of 400 images split into training, validation, and test sets. Classes included text, barcodes, and figures.
-Bounding Box Annotation: Using the LabelImg tool, bounding boxes were created in the YOLO format ([class_id, x_center, y_center, width, height]).
-Data Augmentation: Techniques like flipping, brightness/contrast adjustments, and rotation were employed to address class imbalance and improve generalization.
+Data Preparation: The dataset consisted of 1494 images, with a subset of 400 images split into training, validation, and test sets. Classes included text, barcodes, and figures. 
+Bounding Box Annotation: Using the LabelImg tool, bounding boxes were created in the YOLO format ([class_id, x_center, y_center, width, height]). 
+Data Augmentation: Techniques like flipping, brightness/contrast adjustments, and rotation were employed to address class imbalance and improve generalization. 
 
 ### Model Training:
-Baseline YOLO Model: A pretrained YOLOv5s model was used as a starting point.
-Enhanced Training: Variants of the YOLO model were trained with modifications such as Focal Loss to address class imbalance and data augmentation for improved performance.
-Performance:
-The model achieved its highest accuracy with barcodes but struggled with figures/lines due to class imbalance and complex structures.
-Augmented datasets improved text and figure detection, enabling more accurate bounding box predictions.
+Baseline YOLO Model: A pretrained YOLOv5s model was used as a starting point. 
+Enhanced Training: Variants of the YOLO model were trained with modifications such as Focal Loss to address class imbalance and data augmentation for improved performance. 
+Performance: 
+The model achieved its highest accuracy with barcodes but struggled with figures/lines due to class imbalance and complex structures. 
+Augmented datasets improved text and figure detection, enabling more accurate bounding box predictions. 
 
-Integration in Workflow:
-YOLO's output (bounding boxes) was utilized for subsequent stages:
-Barcode Recognition (Pyzbar): Decodes barcode regions and determines type, position, and size.
-These outputs were passed to an API for ZPL code generation.
+Integration in Workflow: 
+YOLO's output (bounding boxes) was utilized for subsequent stages: 
+Barcode Recognition (Pyzbar): Decodes barcode regions and determines type, position, and size. 
+These outputs were passed to an API for ZPL code generation. 
 
-### Challenges:
-Imbalanced classes led to lower detection accuracy for figures.
-Some barcodes were too small for the model to interpret effectively.
-Bounding boxes needed validation to ensure accuracy post-augmentation.
+### Challenges: 
+Imbalanced classes led to lower detection accuracy for figures. 
+Some barcodes were too small for the model to interpret effectively. 
+Bounding boxes needed validation to ensure accuracy post-augmentation. 
 
-### YOLO model Outcome: 
+### YOLO model Outcome:  
 Despite limitations, YOLO provided valuable bounding box predictions, which formed the foundation for downstream OCR, barcode recognition, and ZPL generation, ultimately enabling the automated pipeline to achieve its objectives.
 
 ### OCR Process in the Workflow
