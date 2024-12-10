@@ -27,20 +27,20 @@ The primary problem this project aims to solve is the inefficiency and complexit
 ### Image Detection using YOLO
 [Inu]
 
-## **OCR Process in the Workflow**
+### OCR Process in the Workflow
 
 The OCR (Optical Character Recognition) component is responsible for extracting textual content from printer label images. It is a critical step in the pipeline, ensuring that all text elements are accurately recognized and passed downstream for ZPL code generation.
 
 ---
 
-### **1. Role of OCR in the Workflow**
+#### **1. Role of OCR in the Workflow**
 - The OCR module takes input from the **Object Detection** stage, where bounding boxes for text regions are provided.
 - Using these bounding boxes, the OCR module focuses specifically on the text regions, ignoring irrelevant elements like barcodes or figures.
 - The recognized text is then passed to the API for ZPL code generation.
 
 ---
 
-### **2. OCR Model: PyTesseract**
+#### **2. OCR Model: PyTesseract**
 - **Model Description**:
   - PyTesseract is a Python wrapper for Google’s Tesseract-OCR engine.
   - It is a lightweight and efficient OCR solution, capable of handling multiple fonts and text sizes.
@@ -53,7 +53,7 @@ The OCR (Optical Character Recognition) component is responsible for extracting 
 
 ---
 
-### **3. OCR Process Workflow**
+#### **3. OCR Process Workflow**
 The OCR module follows these steps:
 
 1. **Input from Object Detection**:
@@ -76,7 +76,7 @@ The OCR module follows these steps:
 
 ---
 
-### **4. Challenges and Solutions**
+#### **4. Challenges and Solutions**
 - **Challenge**: Interference from barcodes and dense text regions.
   - **Solution**: Apply preprocessing techniques like whiting out barcodes or improving bounding box precision.
 - **Challenge**: Multi-font and multi-size text.
@@ -86,7 +86,7 @@ The OCR module follows these steps:
 
 ---
 
-### **5. Future Improvements**
+#### **5. Future Improvements**
 - **Integration with Advanced OCR Models**:
   - Consider retraining transformer-based models like TrOCR for improved recognition of dense or complex layouts.
 - **Enhanced Preprocessing**:
