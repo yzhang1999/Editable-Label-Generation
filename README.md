@@ -18,7 +18,9 @@ The primary problem this project aims to solve is the inefficiency and complexit
 - core_pytesseract.ipynb: This file processes each image over the test folder, providing text recognition by PyTesseract.
 - compare.ipynb: This file compares the text recogniztion output with the ground truth, providing groundtruth-base metrics: character accuracy and word accuracy.
 - TrOCR.ipynb: This file showcases how the TrOCR works.
-- EASTOCR.ipynb: This files demonstrates the EAST + TrOCR pipeline. This approach can be further fine-tuned by feeding specific data along with ground truth. 
+- EASTOCR.ipynb: This files demonstrates the EAST + TrOCR pipeline. This approach can be further fine-tuned by feeding specific data along with ground truth.
+- YOLO.ipynb: This file shows the baseline YOLO model using the training data with differnent loss functions in order to train our model with the bounding box data we manually created.
+- YOLOw_Augmented.ipynb: This file further enhances the YOLO model using data augmentation that we beformed using the albumentations package. This model is our best performing model.
 
 ## Process Workflow
 ![Editable_Label_Workflow](https://github.com/user-attachments/assets/7136da11-c04b-44af-914d-51e3aae075a6)
