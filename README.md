@@ -14,6 +14,11 @@ The primary problem this project aims to solve is the inefficiency and complexit
 
 ## Files Description
 - API.ipynb: This file includes code for prompt engineering and experiments with the Anthropic API and OpenAI API to generate ZPL code.
+- pytesseract.ipynb: This file demonstrates (with graphic example) how the PyTesseract works, along with image preprocessing (by opencv).
+- core_pytesseract.ipynb: This file processes each image over the test folder, providing text recognition by PyTesseract.
+- compare.ipynb: This file compares the text recogniztion output with the ground truth, providing groundtruth-base metrics: character accuracy and word accuracy.
+- TrOCR.ipynb: This file showcases how the TrOCR works.
+- EASTOCR.ipynb: This files demonstrates the EAST + TrOCR pipeline. This approach can be further fine-tuned by feeding specific data along with ground truth. 
 
 ## Process Workflow
 ![Editable_Label_Workflow](https://github.com/user-attachments/assets/7136da11-c04b-44af-914d-51e3aae075a6)
@@ -21,7 +26,6 @@ The primary problem this project aims to solve is the inefficiency and complexit
 ## Model Explanation
 ### Image Detection using YOLO
 [Inu]
-### Optical Character Recognition
 
 ## **OCR Process in the Workflow**
 
