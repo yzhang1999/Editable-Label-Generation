@@ -117,7 +117,34 @@ The OCR module follows these steps:
 ---
 
 ### Image Recognition
-[Louise]
+
+The **Image Recognition** component is a critical foundation for the entire pipeline, enabling accurate detection of text, barcodes, and figures on labels. This process involves leveraging advanced Convolutional Neural Networks (CNNs) for object detection and classification tasks.
+
+#### **Model Architecture**
+The image recognition framework primarily utilizes YOLO (You Only Look Once) models for real-time object detection and classification, optimized with additional data preprocessing and augmentation steps.
+
+#### **Key Features**
+- **Multiclass Detection**: Identifies and differentiates between textual content, barcodes, and other graphical elements.
+- **Pretrained Models**: YOLOv5s was fine-tuned on custom datasets to improve its performance on label-specific tasks.
+- **Data Augmentation**: Techniques like rotation, scaling, flipping, and brightness adjustment were employed to enhance robustness and generalization.
+- **Bounding Box Annotation**: Images were labeled with bounding boxes using tools like LabelImg to provide precise input for model training.
+
+#### **Pipeline Workflow**
+1. **Input Preprocessing**: Images are resized and normalized to ensure compatibility with the YOLO model.
+2. **Detection and Classification**: YOLO outputs bounding boxes, class labels, and confidence scores for all detected objects.
+3. **Post-Processing**:
+   - Non-Maximum Suppression (NMS) is applied to filter overlapping bounding boxes.
+   - Outputs are passed downstream for OCR and barcode processing.
+
+#### **Challenges and Optimizations**
+- **Class Imbalance**: Enhanced detection accuracy for underrepresented classes using Focal Loss.
+- **Small Object Detection**: Customized anchor boxes and data augmentation improved the detection of smaller objects like fine text or tiny barcodes.
+- **Complex Layouts**: Advanced preprocessing techniques, including masking and white-out for irrelevant elements, were employed to simplify complex label layouts.
+
+#### **Outcomes**
+The image recognition module provided high-confidence bounding box predictions for downstream OCR and ZPL code generation. This integration ensured a seamless and automated pipeline for label creation.
+
+---
 
 ## Feed Information to API and ZPL Code Generation
 The final phase of this project was to identify and refine the optimal approach for generating ZPL code from label data, including text, bounding boxes, and barcode metadata. Through systematic exploration and prompt engineering, the OpenAI API was selected as the most effective solution for generating structured ZPL outputs. 
